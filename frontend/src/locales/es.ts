@@ -58,6 +58,8 @@ export default {
   },
   sales: {
     title: 'Ventas',
+    branch: 'Sucursal',
+    loadingBranches: 'Cargando…',
     newSale: 'Nueva venta',
     date: 'Fecha',
     total: 'Total',
@@ -100,6 +102,8 @@ export default {
     backToProducts: '← Productos',
     title: 'Inteligencia del producto',
     loading: 'Cargando…',
+    forecastHorizon: 'Horizonte de pronóstico',
+    estimatedSalesHorizon: 'Ventas estimadas en el horizonte seleccionado',
     stock: 'Stock',
     currentStock: 'Stock actual',
     minimumStock: 'Stock mínimo',
