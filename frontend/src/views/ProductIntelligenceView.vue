@@ -123,7 +123,7 @@
           class="mt-4 border-t pt-3"
         >
           <div class="mb-2 flex flex-wrap items-center gap-2">
-            <span class="text-xs font-medium text-muted-foreground">Horizonte de pronóstico</span>
+            <span class="text-xs font-medium text-muted-foreground">{{ t('intelligence.forecastHorizon') }}</span>
             <div class="inline-flex rounded-md border bg-background p-0.5 text-xs">
               <button
                 v-for="option in horizonOptions"
@@ -139,7 +139,7 @@
           </div>
           <dl class="grid gap-2 sm:grid-cols-2 text-sm">
             <div>
-              <dt class="text-muted-foreground">Ventas estimadas en el horizonte seleccionado</dt>
+              <dt class="text-muted-foreground">{{ t('intelligence.estimatedSalesHorizon') }}</dt>
               <dd class="font-medium">{{ selectedHorizonData?.total ?? '—' }}</dd>
             </div>
             <div>

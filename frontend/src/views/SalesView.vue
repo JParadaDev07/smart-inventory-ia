@@ -245,13 +245,13 @@
                 />
               </div>
               <div class="space-y-2">
-                <Label>Sucursal</Label>
+                <Label>{{ t('sales.branch') }}</Label>
                 <select
                   v-model.number="selectedBranchId"
                   class="flex h-9 w-64 rounded-md border border-input bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   :disabled="!branches.length"
                 >
-                  <option v-if="!branches.length" :value="0" disabled>Loading...</option>
+                  <option v-if="!branches.length" :value="0" disabled>{{ t('sales.loadingBranches') }}</option>
                   <option v-else v-for="b in branches" :key="b.id" :value="b.id">
                     {{ b.name }}
                   </option>
