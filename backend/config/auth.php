@@ -1,0 +1,38 @@
+<?php
+
+return [
+    'defaults' => [
+        // Use session-based web guard for login (supports attempt()).
+        'guard' => 'web',
+        'passwords' => 'users',
+    ],
+    'guards' => [
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        'sanctum' => [
+            'driver' => 'sanctum',
+            'provider' => 'users',
+        ],
+    ],
+    'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+        ],
+    ],
+    'passwords' => [
+        'users' => [
+            'provider' => 'users',
+            'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+    ],
+    'password_timeout' => 10800,
+    'verification' => [
+        'expire' => 60,
+    ],
+    'must_verify_email' => env('MUST_VERIFY_EMAIL', false),
+];

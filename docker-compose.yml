@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      APP_ENV: production
+      APP_DEBUG: false
+      DB_HOST: mysql
+      DB_DATABASE: inventory
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      DB_PORT: 3306
+      FASTAPI_URL: http://ai-service:8000
+      PORT: 8000
+    depends_on:
+      - mysql
+      - ai-service
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+  ai-service:
+    build: ./ai-service
+    ports:
+      - "8001:8000"
+
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: inventory
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
