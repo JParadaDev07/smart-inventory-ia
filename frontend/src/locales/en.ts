@@ -387,4 +387,5 @@ export default {
     priorityLow: 'Low',
     priorityMedium: 'Medium',
     priorityHigh: 'High',
-    s
+  }
+}
