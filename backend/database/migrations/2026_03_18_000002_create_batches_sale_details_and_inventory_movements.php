@@ -73,7 +73,7 @@ return new class extends Migration
 
                 $table->timestamps();
 
-                $table->index(['business_id', 'branch_id', 'product_id', 'occurred_at']);
+                $table->index(['business_id', 'branch_id', 'product_id', 'occurred_at'], 'inv_mov_biz_branch_prod_occurred_idx');
                 $table->index(['business_id', 'batch_id']);
 
                 $table->foreign('business_id')->references('id')->on('businesses')->cascadeOnDelete();
