@@ -217,6 +217,10 @@ class ProductController extends Controller
             $branchId = Branch::query()->where('business_id', $businessId)->orderBy('id')->value('id');
         }
 
+        if (!$branchId) {
+            return response()->json(['message' => 'No branch found for this business. Please create a branch first.'], 422);
+        }
+
         try {
             $productModel = app(StockAdjustmentService::class)->adjust(
                 businessId: $businessId,
